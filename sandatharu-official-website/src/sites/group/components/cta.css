@@ -1,0 +1,6 @@
+.cta { background: var(--bg); text-align: center; padding-bottom: clamp(100px, 14vw, 180px); }
+.cta__inner { max-width: 900px; }
+.cta__kicker { color: var(--muted); }
+.cta__title { margin: 22px 0 22px; color: var(--ink); }
+.cta__sub { color: var(--muted); max-width: 48ch; margin: 0 auto 34px; font-size: 1.05rem; }
+.cta__btns { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }

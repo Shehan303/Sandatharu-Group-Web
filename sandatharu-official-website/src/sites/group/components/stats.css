@@ -1,0 +1,16 @@
+.stats { background: var(--bg-alt); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); padding: 48px 0; }
+.stats__grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
+.stats__item { text-align: center; padding: 12px 0; position: relative; }
+.stats__item + .stats__item::before {
+  content: ''; position: absolute; left: -12px; top: 15%; bottom: 15%; width: 1px; background: var(--line);
+}
+.stats__num { color: var(--ink); }
+.stats__num span { display: inline-block; }
+.stats__label {
+  font-family: var(--font-mono); font-size: 0.72rem; letter-spacing: 0.2em;
+  text-transform: uppercase; color: var(--muted); margin-top: 8px;
+}
+@media (max-width: 700px) {
+  .stats__grid { grid-template-columns: repeat(2, 1fr); gap: 16px; }
+  .stats__item + .stats__item::before { display: none; }
+}

@@ -1,0 +1,54 @@
+:root {
+  /* Surfaces */
+  --bg:          #F7F5F0;
+  --bg-alt:      #FFFFFF;
+  --bg-dark:     #0A0A0A;
+  --bg-ink:      #101010;
+
+  /* Ink */
+  --ink:         #0A0A0A;
+  --ink-2:       #1A1A1A;
+  --muted:       #6B6B6B;
+  --muted-2:     #9A9A9A;
+  --line:        #E5E1D8;
+  --line-dark:   rgba(255,255,255,0.12);
+
+  /* Business accents */
+  --coco:        #2E7D32;
+  --coco-soft:   #E8F3E9;
+  --travels:     #1565C0;
+  --travels-soft:#E7F0FA;
+  --it:          #0D47A1;
+  --it-soft:     #E7ECF6;
+
+  /* Group CTA */
+  --accent:      #FF5A1F;
+  --accent-2:    #FF8A4C;
+  --accent-soft: #FFEFE6;
+
+  /* Typography */
+  --font-display: 'Anton', 'Impact', sans-serif;
+  --font-body:    'Inter', system-ui, sans-serif;
+  --font-mono:    'Space Grotesk', ui-monospace, monospace;
+
+  /* Sizing */
+  --nav-h:       76px;
+  --topbar-h:    38px;
+  --section-pad: clamp(72px, 10vw, 140px);
+  --container:   1280px;
+
+  /* Radii */
+  --r-sm: 8px;
+  --r-md: 14px;
+  --r-lg: 24px;
+  --r-xl: 36px;
+
+  /* Shadows */
+  --sh-sm: 0 2px 8px rgba(10,10,10,0.06);
+  --sh-md: 0 10px 30px rgba(10,10,10,0.08);
+  --sh-lg: 0 24px 60px rgba(10,10,10,0.12);
+
+  /* Easings */
+  --ease: cubic-bezier(.2,.7,.2,1);
+  --ease-out: cubic-bezier(.16,1,.3,1);
+}
