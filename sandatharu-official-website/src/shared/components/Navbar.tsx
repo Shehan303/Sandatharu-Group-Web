@@ -1,90 +1,130 @@
 import { useEffect, useState } from 'react';
-import { Link, NavLink, useLocation } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { BUSINESSES } from '../data/businesses';
 import './navbar.css';
 
 const LINKS = [
-  { to: '/',         label: 'Home' },
-  { to: '/about',    label: 'About' },
-  { to: '/clients',  label: 'Clients' },
-  { to: '/partners', label: 'Partners' },
-  { to: '/news',     label: 'News' },
-  { to: '/contact',  label: 'Contact' }
+  { to: '/',              label: 'Home' },
+  { to: '/about',         label: 'About' },
+  { to: '/businesses',    label: 'Businesses' },
+  { to: '/story',         label: 'Story' },
+  { to: '/network',       label: 'Network' },
+  { to: '/sustainability',label: 'Sustainability' },
+  { to: '/news',          label: 'News' },
+  { to: '/contact',       label: 'Contact' }
 ];
+
+/* Routes that have a dark hero at the top → navbar starts transparent */
+const HERO_ROUTES = ['/', '/coco', '/travels', '/it'];
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
-  const [bizOpen, setBizOpen] = useState(false);
   const { pathname } = useLocation();
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 30);
+    const onScroll = () => setScrolled(window.scrollY > 40);
     onScroll();
     window.addEventListener('scroll', onScroll, { passive: true });
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
-  useEffect(() => { setOpen(false); setBizOpen(false); }, [pathname]);
+  useEffect(() => { setOpen(false); }, [pathname]);
+
+  const isHero = HERO_ROUTES.includes(pathname);
+  const isTransparent = isHero && !scrolled;
+
+  const navClass = [
+    'nav',
+    isTransparent && 'nav--hero',
+    scrolled && 'nav--scrolled'
+  ].filter(Boolean).join(' ');
 
   return (
-    <header className={`nav ${scrolled ? 'nav--scrolled' : ''}`}>
-      <div className="nav__inner container">
-        <Link to="/" className="nav__logo" aria-label="Sandatharu Group home">
-          <span className="nav__logo-mark">S</span>
-          <span className="nav__logo-text">
-            <strong>SANDATHARU</strong>
-            <em>GROUP</em>
-          </span>
-        </Link>
+    <>
+      <header className={navClass}>
+        <div className="nav__inner">
+          <Link to="/" className="nav__brand" aria-label="Sandatharu Group">
+            <img src="../../../public/logos/sandatharu-logo-darck-nav.png" alt="Sandatharu Group" className="nav__logo-color" />
+            <img src="../../../public/logos/sandatharu-logo-white nav.png" alt="" className="nav__logo-white" aria-hidden />
+          </Link>
 
-        <nav className="nav__links">
-          {LINKS.map(l => (
-            <NavLink key={l.to} to={l.to} className={({ isActive }) => `nav__link ${isActive ? 'is-active' : ''}`}>
-              {l.label}
-            </NavLink>
-          ))}
-          <div className="nav__dropdown" onMouseEnter={() => setBizOpen(true)} onMouseLeave={() => setBizOpen(false)}>
-            <button className="nav__link nav__link--btn">
-              Businesses <span className="caret">▾</span>
-            </button>
-            {bizOpen && (
-              <div className="nav__menu">
-                {BUSINESSES.map(b => (
-                  <Link key={b.key} to={b.route} className="nav__menu-item" style={{ '--accent': b.accent } as React.CSSProperties}>
-                    <span className="nav__menu-emoji">{b.emoji}</span>
-                    <span>
-                      <strong>{b.name}</strong>
-                      <em>{b.tagline}</em>
-                    </span>
-                  </Link>
-                ))}
-              </div>
-            )}
-          </div>
-        </nav>
+          <nav className="nav__links" aria-label="Main">
+            {LINKS.map(l => (
+              <Link
+                key={l.to}
+                to={l.to}
+                className={`nav__link ${pathname === l.to ? 'is-active' : ''}`}
+              >
+                {l.label}
+              </Link>
+            ))}
+          </nav>
 
-        <Link to="/contact" className="btn btn-primary nav__cta hide-md">Get in Touch →</Link>
+          <Link to="/contact" className="nav__cta">
+            <span>Start a Conversation</span>
+            <svg className="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+              <path d="M5 12h14M13 6l6 6-6 6"/>
+            </svg>
+          </Link>
 
-        <button className="nav__burger" aria-label="Menu" onClick={() => setOpen(v => !v)}>
-          <span className={open ? 'is-open' : ''} />
-        </button>
-      </div>
+          <button
+            className={`nav__burger ${open ? 'is-open' : ''}`}
+            aria-label={open ? 'Close menu' : 'Open menu'}
+            aria-expanded={open}
+            onClick={() => setOpen(v => !v)}
+          >
+            <span />
+          </button>
+        </div>
+      </header>
 
       {open && (
-        <div className="nav__mobile">
-          {LINKS.map(l => <NavLink key={l.to} to={l.to} className="nav__mobile-link">{l.label}</NavLink>)}
-          <div className="nav__mobile-sub">
-            <span className="kicker">Our Businesses</span>
-            {BUSINESSES.map(b => (
-              <Link key={b.key} to={b.route} className="nav__mobile-biz" style={{ '--accent': b.accent } as React.CSSProperties}>
-                <span>{b.emoji}</span> {b.name}
+        <div className="nav__drawer">
+          <div className="nav__drawer-links">
+            {LINKS.map((l, i) => (
+              <Link
+                key={l.to}
+                to={l.to}
+                className="nav__drawer-link"
+                style={{ animationDelay: `${i * 0.05}s` }}
+                onClick={() => setOpen(false)}
+              >
+                <span className="nav__drawer-num">0{i + 1}</span>
+                <span>{l.label}</span>
               </Link>
             ))}
           </div>
-          <Link to="/contact" className="btn btn-primary" style={{ marginTop: 20 }}>Get in Touch →</Link>
+
+          <div className="nav__drawer-biz">
+            <span className="k">Our Businesses</span>
+            {BUSINESSES.map(b => (
+              <Link
+                key={b.key}
+                to={b.route}
+                className="nav__drawer-biz-item"
+                style={{ '--c': b.accent } as React.CSSProperties}
+                onClick={() => setOpen(false)}
+              >
+                <span className="nav__drawer-biz-bar" />
+                <img src={b.logo} alt={b.name} />
+              </Link>
+            ))}
+          </div>
+
+          <Link
+            to="/contact"
+            className="btn btn-primary"
+            style={{ marginTop: 24, alignSelf: 'flex-start' }}
+            onClick={() => setOpen(false)}
+          >
+            <span>Start a Conversation</span>
+            <svg className="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+              <path d="M5 12h14M13 6l6 6-6 6"/>
+            </svg>
+          </Link>
         </div>
       )}
-    </header>
+    </>
   );
 }

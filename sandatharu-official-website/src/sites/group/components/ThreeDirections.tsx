@@ -4,14 +4,20 @@ import { BUSINESSES } from '../../../shared/data/businesses';
 import './directions.css';
 
 const NODE = {
-  coco:    { emoji: '🌴', label: 'Products',   sub: 'Natural & sustainable' },
-  travels: { emoji: '🚐', label: 'Mobility',   sub: 'Travel & transport' },
-  it:      { emoji: '💻', label: 'Technology', sub: 'Software & digital' }
+  coco:    { label: 'Products',   sub: 'Natural & sustainable' },
+  travels: { label: 'Mobility',   sub: 'Travel & transport' },
+  it:      { label: 'Technology', sub: 'Software & digital' }
 } as const;
 
 export default function ThreeDirections() {
   return (
-    <section className="directions chevron-up">
+    <section className="directions">
+      <div className="directions__bg" aria-hidden>
+        <div className="directions__blob directions__blob--blue" />
+        <div className="directions__blob directions__blob--green" />
+        <div className="directions__blob directions__blob--yellow" />
+      </div>
+
       <div className="container">
         <div className="directions__head">
           <motion.span className="kicker directions__kicker" initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }}>
@@ -29,21 +35,15 @@ export default function ThreeDirections() {
         <div className="directions__chart">
           <div className="directions__root">
             <span className="directions__root-pulse" />
-            SANDATHARU
+            <img src="/logos/sandatharu-logo-white.svg" alt="Sandatharu Group" />
           </div>
 
           <svg className="directions__lines" viewBox="0 0 1000 200" preserveAspectRatio="none" aria-hidden>
             <motion.path
               d="M500 0 V40 M500 40 H160 V150 M500 40 H500 V150 M500 40 H840 V150"
-              fill="none" stroke="rgba(255,255,255,.22)" strokeWidth="2"
+              fill="none" stroke="rgba(255,255,255,.18)" strokeWidth="2"
               initial={{ pathLength: 0 }} whileInView={{ pathLength: 1 }}
               viewport={{ once: true }} transition={{ duration: 1.6, ease: 'easeInOut' }}
-            />
-            <motion.path
-              d="M160 150 V180 H840 V180 H160"
-              fill="none" stroke="rgba(255,255,255,.22)" strokeWidth="2"
-              initial={{ pathLength: 0 }} whileInView={{ pathLength: 1 }}
-              viewport={{ once: true }} transition={{ duration: 1.6, delay: .9, ease: 'easeInOut' }}
             />
           </svg>
 
@@ -58,10 +58,15 @@ export default function ThreeDirections() {
                   initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, margin: '-80px' }} transition={{ delay: .3 + i * .18, duration: .6 }}
                 >
-                  <span className="directions__ring"><span>{n.emoji}</span></span>
+                  <div className="directions__ring">
+                    <img src={b.logo} alt={b.name} />
+                  </div>
                   <strong>{n.label}</strong>
                   <em>{n.sub}</em>
-                  <Link to={b.route} className="directions__link">Enter →</Link>
+                  <Link to={b.route} className="directions__link">
+                    Enter
+                    <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+                  </Link>
                 </motion.div>
               );
             })}

@@ -1,3 +1,4 @@
+import { useLocation } from 'react-router-dom';
 import TopBar from './shared/components/TopBar';
 import Navbar from './shared/components/Navbar';
 import Footer from './shared/components/Footer';
@@ -5,15 +6,21 @@ import ScrollToTop from './shared/components/ScrollToTop';
 import AppRoutes from './routes/AppRoutes';
 
 export default function App() {
+  const { pathname } = useLocation();
+ const isStandalone =
+  pathname.startsWith('/admin') ||
+  pathname.startsWith('/coco') ||
+  pathname.startsWith('/travels');
+
   return (
     <>
       <ScrollToTop />
-      <TopBar />
-      <Navbar />
-      <main>
+      {!isStandalone && <TopBar />}
+      {!isStandalone && <Navbar />}
+      <main style={{ paddingTop: isStandalone ? 0 : undefined }}>
         <AppRoutes />
       </main>
-      <Footer />
+      {!isStandalone && <Footer />}
     </>
   );
 }

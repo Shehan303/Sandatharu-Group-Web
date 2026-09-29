@@ -1,0 +1,32 @@
+.sl { background: var(--paper); padding: var(--section-pad) 0; }
+.sl__head { max-width: 800px; margin-bottom: 60px; }
+.sl__title { margin-top: 20px; }
+.sl__title em { font-style: normal; color: var(--blue); }
+.sl__lead { color: var(--muted); margin: 24px 0 0; max-width: 56ch; }
+
+.sl__grid { display: grid; grid-template-columns: 1fr 1.2fr; gap: 60px; align-items: center; }
+.sl__map svg { width: 100%; max-width: 340px; margin: 0 auto; display: block; }
+
+.sl__steps { display: flex; flex-direction: column; gap: 6px; }
+.sl__step {
+  display: flex; align-items: center; gap: 20px;
+  padding: 20px 24px;
+  background: var(--paper-2);
+  border: 1px solid var(--line);
+  border-radius: var(--r-sm);
+  position: relative;
+  transition: all .3s var(--ease);
+}
+.sl__step:hover { background: var(--yellow); border-color: var(--yellow); transform: translateX(6px); }
+.sl__step-num {
+  font-family: var(--mono); font-size: 0.68rem; letter-spacing: 0.2em;
+  color: var(--muted);
+}
+.sl__step:hover .sl__step-num { color: var(--ink); }
+.sl__step-label { font-family: var(--display); font-size: 1.1rem; text-transform: uppercase; letter-spacing: 0.03em; }
+.sl__step-arrow {
+  position: absolute; left: 50%; bottom: -18px; transform: translateX(-50%);
+  color: var(--muted); font-size: 0.9rem;
+}
+
+@media (max-width: 900px) { .sl__grid { grid-template-columns: 1fr; } }

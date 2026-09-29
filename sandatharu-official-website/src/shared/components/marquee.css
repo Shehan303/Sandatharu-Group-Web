@@ -1,5 +1,5 @@
-.marquee { overflow: hidden; position: relative; width: 100%; }
-.marquee__track { display: flex; width: max-content; animation: marquee linear infinite; }
-.marquee__track.is-reverse { animation-direction: reverse; }
-@keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+.marquee { overflow: hidden; width: 100%; position: relative; }
+.marquee__track { display: flex; width: max-content; animation: mq linear infinite; }
+.marquee__track.is-rev { animation-direction: reverse; }
+@keyframes mq { from { transform: translateX(0); } to { transform: translateX(-50%); } }
 .marquee:hover .marquee__track { animation-play-state: paused; }

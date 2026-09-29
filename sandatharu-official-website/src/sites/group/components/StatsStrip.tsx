@@ -3,10 +3,10 @@ import { useEffect, useRef, useState } from 'react';
 import './stats.css';
 
 const STATS = [
-  { n: 3,   suffix: '',  label: 'Businesses' },
-  { n: 1,   suffix: '',  label: 'Vision' },
-  { n: 25,  suffix: '+', label: 'Service Areas' },
-  { n: 24,  suffix: '/7', label: 'Support' }
+  { n: 3,   suffix: '',   label: 'Companies', accent: 'var(--blue)' },
+  { n: 1,   suffix: '',   label: 'Vision',    accent: 'var(--green)' },
+  { n: 25,  suffix: '+',  label: 'Service Areas', accent: 'var(--yellow)' },
+  { n: 24,  suffix: '/7', label: 'Support',   accent: 'var(--red)' }
 ];
 
 function Counter({ to, suffix }: { to: number; suffix: string }) {
@@ -25,7 +25,6 @@ function Counter({ to, suffix }: { to: number; suffix: string }) {
     raf = requestAnimationFrame(tick);
     return () => cancelAnimationFrame(raf);
   }, [inView, to]);
-
   return <span ref={ref}>{val}{suffix}</span>;
 }
 
@@ -37,11 +36,13 @@ export default function StatsStrip() {
           <motion.div
             key={s.label}
             className="stats__item"
+            style={{ '--accent': s.accent } as React.CSSProperties}
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: '-80px' }}
             transition={{ duration: .6, delay: i * .1 }}
           >
+            <div className="stats__bar" />
             <div className="stats__num display display-md">
               <Counter to={s.n} suffix={s.suffix} />
             </div>

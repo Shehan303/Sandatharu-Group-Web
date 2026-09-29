@@ -1,0 +1,33 @@
+.ab-intro__grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+.ab-intro__title { margin: 20px 0 30px; max-width: 16ch; }
+.ab-intro .lead + .lead { margin-top: 16px; }
+.ab-intro__imgs { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.ab-intro__imgs img { width: 100%; aspect-ratio: 1; object-fit: cover; border-radius: var(--r-md); }
+.ab-intro__imgs img:first-child { grid-column: span 2; aspect-ratio: 16/10; }
+
+.ab-nums { background: var(--ink); color: #fff; }
+.ab-nums__grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
+.ab-nums__cell { display: flex; flex-direction: column; gap: 8px; padding: 20px 0; border-top: 1px solid rgba(255,255,255,.1); }
+.ab-nums__n { font-size: clamp(2.4rem, 5vw, 4rem); color: var(--yellow); line-height: 1; }
+.ab-nums__l { font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.22em; text-transform: uppercase; }
+.ab-nums__s { font-size: 0.82rem; color: rgba(255,255,255,.5); }
+
+.ab-pr__head { margin-bottom: 60px; }
+.ab-pr__title { margin-top: 20px; }
+.ab-pr__grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
+.ab-pr__cell { padding: 32px 26px; background: var(--paper-2); border: 1px solid var(--line); border-radius: var(--r-md); transition: all .35s var(--ease); }
+.ab-pr__cell:hover { transform: translateY(-6px); box-shadow: var(--sh-md); border-color: var(--green); }
+.ab-pr__num { font-size: 2.4rem; color: var(--green); display: block; margin-bottom: 16px; }
+.ab-pr__t { font-family: var(--display); font-size: 1.25rem; text-transform: uppercase; margin: 0 0 10px; }
+.ab-pr__d { color: var(--muted); font-size: 0.9rem; margin: 0; }
+
+.ab-cta { background: var(--paper-3); text-align: center; }
+.ab-cta__inner { max-width: 780px; margin: 0 auto; }
+.ab-cta__btns { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; margin-top: 32px; }
+
+@media (max-width: 900px) {
+  .ab-intro__grid { grid-template-columns: 1fr; gap: 40px; }
+  .ab-nums__grid { grid-template-columns: 1fr 1fr; }
+  .ab-pr__grid { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 520px) { .ab-nums__grid, .ab-pr__grid { grid-template-columns: 1fr; } }

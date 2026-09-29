@@ -2,16 +2,16 @@ import './marquee.css';
 
 interface Props {
   children: React.ReactNode;
-  speed?: number;   // seconds
+  speed?: number;
   reverse?: boolean;
+  className?: string;
 }
 
-export default function Marquee({ children, speed = 34, reverse = false }: Props) {
+export default function Marquee({ children, speed = 40, reverse = false, className = '' }: Props) {
   return (
-    <div className="marquee" aria-hidden>
-      <div className={`marquee__track ${reverse ? 'is-reverse' : ''}`} style={{ animationDuration: `${speed}s` }}>
-        {children}
-        {children}
+    <div className={`marquee ${className}`}>
+      <div className={`marquee__track ${reverse ? 'is-rev' : ''}`} style={{ animationDuration: `${speed}s` }}>
+        {children}{children}
       </div>
     </div>
   );

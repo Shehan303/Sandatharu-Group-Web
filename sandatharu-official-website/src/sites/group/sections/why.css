@@ -1,0 +1,29 @@
+.wg { background: var(--paper); padding: var(--section-pad) 0; }
+.wg__head { margin-bottom: 60px; }
+.wg__title { margin-top: 20px; }
+.wg__title em { font-style: normal; color: var(--green); }
+
+.wg__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.wg__cell {
+  background: var(--paper-2);
+  border: 1px solid var(--line);
+  padding: 32px 28px 36px;
+  border-radius: var(--r-md);
+  transition: transform .4s var(--ease), border-color .3s, box-shadow .4s;
+  position: relative; overflow: hidden;
+}
+.wg__cell::before {
+  content: ''; position: absolute; left: 0; bottom: 0; height: 3px; width: 100%;
+  background: var(--c); transform: scaleX(0); transform-origin: left;
+  transition: transform .5s var(--ease-out);
+}
+.wg__cell:hover { transform: translateY(-6px); border-color: var(--c); box-shadow: var(--sh-md); }
+.wg__cell:hover::before { transform: scaleX(1); }
+.wg__cell-top { display: flex; align-items: center; gap: 14px; margin-bottom: 22px; }
+.wg__num { font-size: clamp(2.2rem, 4vw, 3.2rem); color: var(--c); line-height: 1; }
+.wg__bar { flex: 1; height: 1px; background: var(--line); }
+.wg__t { font-family: var(--display); font-size: 1.3rem; text-transform: uppercase; margin: 0 0 10px; letter-spacing: 0.01em; }
+.wg__d { color: var(--muted); font-size: 0.9rem; margin: 0; }
+
+@media (max-width: 900px) { .wg__grid { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 560px) { .wg__grid { grid-template-columns: 1fr; } }

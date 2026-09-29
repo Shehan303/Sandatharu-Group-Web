@@ -1,0 +1,47 @@
+.ct { background: var(--paper-3); padding: var(--section-pad) 0; }
+.ct__head { margin-bottom: 60px; }
+.ct__title { margin-top: 20px; }
+.ct__title em { font-style: normal; color: var(--blue); }
+
+.ct__grid { display: grid; grid-template-columns: 1fr 1.3fr; gap: 60px; align-items: start; }
+.ct__h { font-family: var(--display); font-size: clamp(1.5rem, 2.4vw, 2rem); text-transform: uppercase; margin: 0 0 22px; line-height: 1.15; }
+.ct__p { color: var(--muted); margin: 0 0 40px; max-width: 48ch; }
+
+.ct__info { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; }
+.ct__info li {
+  display: flex; justify-content: space-between; align-items: baseline;
+  padding: 18px 0; border-bottom: 1px solid var(--line);
+  gap: 20px;
+}
+.ct__info-label { font-family: var(--mono); font-size: 0.68rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--muted); }
+.ct__info-val { font-family: var(--display); font-size: 1.05rem; letter-spacing: 0.02em; }
+
+.ct__form { background: var(--paper); border-radius: var(--r-md); padding: 36px; display: flex; flex-direction: column; gap: 20px; box-shadow: var(--sh-sm); }
+.ct__row { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+.ct__field { display: flex; flex-direction: column; gap: 8px; }
+.ct__field span {
+  font-family: var(--mono); font-size: 0.66rem; letter-spacing: 0.2em;
+  text-transform: uppercase; color: var(--muted); font-weight: 600;
+}
+.ct__field input,
+.ct__field select,
+.ct__field textarea {
+  padding: 14px 16px;
+  background: var(--paper-2);
+  border: 1px solid var(--line);
+  border-radius: var(--r-xs);
+  font-family: var(--body); font-size: 0.94rem;
+  color: var(--text); outline: none;
+  transition: border-color .25s, box-shadow .25s;
+}
+.ct__field input:focus,
+.ct__field select:focus,
+.ct__field textarea:focus { border-color: var(--blue); box-shadow: 0 0 0 3px rgba(0,119,203,.12); }
+.ct__field textarea { resize: vertical; min-height: 120px; font-family: var(--body); }
+.ct__submit { align-self: flex-start; }
+
+@media (max-width: 900px) {
+  .ct__grid { grid-template-columns: 1fr; gap: 40px; }
+  .ct__row { grid-template-columns: 1fr; }
+  .ct__form { padding: 26px; }
+}

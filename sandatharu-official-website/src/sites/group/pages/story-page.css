@@ -1,0 +1,20 @@
+.sp-timeline .container { display: flex; flex-direction: column; gap: 100px; }
+.sp-row { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+.sp-row--rev { direction: rtl; }
+.sp-row--rev > * { direction: ltr; }
+.sp-row__img { position: relative; aspect-ratio: 4 / 3; border-radius: var(--r-lg); overflow: hidden; box-shadow: var(--sh-md); }
+.sp-row__img img { width: 100%; height: 100%; object-fit: cover; }
+.sp-row__num { position: absolute; top: 20px; left: 24px; font-size: 3.4rem; color: #fff; line-height: 1; text-shadow: 0 6px 24px rgba(0,0,0,.5); }
+.sp-row__year { font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.28em; text-transform: uppercase; color: var(--green); font-weight: 600; }
+.sp-row__title { margin: 20px 0 20px; }
+.sp-row__d { color: var(--muted); max-width: 48ch; margin: 0; }
+
+.sp-cta { background: var(--paper-3); text-align: center; }
+.sp-cta__inner { max-width: 780px; margin: 0 auto; }
+.sp-cta__btns { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; margin-top: 32px; }
+
+@media (max-width: 900px) {
+  .sp-row { grid-template-columns: 1fr; gap: 30px; }
+  .sp-row--rev { direction: ltr; }
+  .sp-timeline .container { gap: 60px; }
+}

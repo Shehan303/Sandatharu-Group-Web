@@ -3,6 +3,11 @@ import ReactDOM from 'react-dom/client';
 import { BrowserRouter } from 'react-router-dom';
 import App from './App';
 import './styles/index.css';
+import './styles/index.css';
+import './sites/coco/coco.css';
+import './styles/index.css';
+import './sites/coco/coco.css';
+import './sites/travels/travels.css';
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>

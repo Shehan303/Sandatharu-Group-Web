@@ -1,6 +1,13 @@
-.cta { background: var(--bg); text-align: center; padding-bottom: clamp(100px, 14vw, 180px); }
-.cta__inner { max-width: 900px; }
+.cta { background: var(--bg-alt); text-align: center; padding-bottom: clamp(100px, 14vw, 180px); position: relative; overflow: hidden; }
+.cta__bg { position: absolute; inset: 0; pointer-events: none; }
+.cta__blob { position: absolute; border-radius: 50%; filter: blur(80px); opacity: .28; }
+.cta__blob--blue   { width: 480px; height: 480px; background: #0077CB; top: -80px; left: -100px; }
+.cta__blob--green  { width: 420px; height: 420px; background: #33A852; bottom: -100px; right: -120px; }
+.cta__blob--yellow { width: 320px; height: 320px; background: #FFC107; top: 30%; left: 50%; opacity: .35; }
+
+.cta__inner { max-width: 900px; position: relative; z-index: 2; }
 .cta__kicker { color: var(--muted); }
 .cta__title { margin: 22px 0 22px; color: var(--ink); }
+.cta__title span { color: var(--blue); }
 .cta__sub { color: var(--muted); max-width: 48ch; margin: 0 auto 34px; font-size: 1.05rem; }
 .cta__btns { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }

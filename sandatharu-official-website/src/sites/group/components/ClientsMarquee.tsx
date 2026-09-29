@@ -2,8 +2,14 @@ import Marquee from '../../../shared/components/Marquee';
 import './clients.css';
 
 const CLIENTS = [
-  'CEYLON AGRO', 'HILLTOP RESORTS', 'NORTHWAY LOGISTICS', 'KANDY HOTELS',
-  'LANKA COCONUT', 'AURORA TECH', 'ROYAL TOURS', 'GREENFIELD EXPORTS'
+  { name: 'CEYLON AGRO',      color: 'var(--green)' },
+  { name: 'HILLTOP RESORTS',  color: 'var(--blue)' },
+  { name: 'NORTHWAY LOGISTICS', color: 'var(--red)' },
+  { name: 'KANDY HOTELS',     color: 'var(--yellow)' },
+  { name: 'LANKA COCONUT',    color: 'var(--green)' },
+  { name: 'AURORA TECH',      color: 'var(--blue)' },
+  { name: 'ROYAL TOURS',      color: 'var(--yellow)' },
+  { name: 'GREENFIELD EXPORTS', color: 'var(--green)' }
 ];
 
 export default function ClientsMarquee() {
@@ -16,18 +22,24 @@ export default function ClientsMarquee() {
         </h2>
       </div>
 
-      <Marquee speed={40}>
+      <Marquee speed={42}>
         <div className="clients__row">
           {CLIENTS.map(c => (
-            <div key={c} className="clients__chip">{c}</div>
+            <div key={c.name} className="clients__chip" style={{ '--accent': c.color } as React.CSSProperties}>
+              <span className="clients__bar" />
+              {c.name}
+            </div>
           ))}
         </div>
       </Marquee>
 
-      <Marquee speed={48} reverse>
-        <div className="clients__row clients__row--alt">
+      <Marquee speed={52} reverse>
+        <div className="clients__row">
           {CLIENTS.slice().reverse().map(c => (
-            <div key={c + '2'} className="clients__chip clients__chip--soft">{c}</div>
+            <div key={c.name + '2'} className="clients__chip clients__chip--soft">
+              <span className="clients__bar" />
+              {c.name}
+            </div>
           ))}
         </div>
       </Marquee>

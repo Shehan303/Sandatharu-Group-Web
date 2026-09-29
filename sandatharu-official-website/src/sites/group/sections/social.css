@@ -1,0 +1,28 @@
+.sc { background: var(--ink); color: #fff; padding: var(--section-pad) 0; }
+.sc__inner { max-width: 900px; }
+.sc__title { margin: 20px 0 24px; color: #fff; }
+.sc__lead { color: rgba(255,255,255,.7); max-width: 52ch; margin: 0 0 50px; }
+.sc__grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 16px; }
+.sc__card {
+  display: flex; flex-direction: column; gap: 10px;
+  padding: 26px 22px;
+  background: rgba(255,255,255,.04);
+  border: 1px solid rgba(255,255,255,.1);
+  border-radius: var(--r-md);
+  transition: all .3s var(--ease);
+}
+.sc__card:hover { transform: translateY(-6px); background: var(--c); border-color: var(--c); }
+.sc__icon {
+  width: 42px; height: 42px; border-radius: 50%;
+  display: grid; place-items: center;
+  background: rgba(255,255,255,.06);
+  color: var(--c);
+  transition: background .3s, color .3s;
+}
+.sc__card:hover .sc__icon { background: rgba(255,255,255,.2); color: #fff; }
+.sc__name { font-family: var(--display); font-size: 1rem; text-transform: uppercase; letter-spacing: 0.04em; }
+.sc__handle { font-family: var(--mono); font-size: 0.66rem; letter-spacing: 0.14em; color: rgba(255,255,255,.55); }
+.sc__card:hover .sc__handle { color: rgba(255,255,255,.85); }
+
+@media (max-width: 900px) { .sc__grid { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 500px) { .sc__grid { grid-template-columns: 1fr; } }

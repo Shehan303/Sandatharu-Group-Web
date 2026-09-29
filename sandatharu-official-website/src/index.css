@@ -29,7 +29,12 @@
     font-size: 16px;
   }
 }
-
+main {
+  padding-top: calc(var(--topbar-h) + var(--nav-h));
+}
+.hero-pull {
+  margin-top: calc(-1 * (var(--topbar-h) + var(--nav-h)));
+}
 @media (prefers-color-scheme: dark) {
   :root {
     --text: #9ca3af;
