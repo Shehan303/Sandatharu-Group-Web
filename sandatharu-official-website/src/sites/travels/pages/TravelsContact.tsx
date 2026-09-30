@@ -52,7 +52,7 @@ export default function TravelsContact() {
   return (
     <TravelsLayout>
       <section className="t-pagehero">
-        <div className="t-pagehero__bg" style={{ backgroundImage: 'url(https://images.unsplash.com/photo-1502877338535-766e1452684a?w=2000&q=85&auto=format&fit=crop)' }} />
+        <div className="t-pagehero__bg" style={{ backgroundImage: 'url("https://images.unsplash.com/photo-1502877338535-766e1452684a?w=2000&q=85&auto=format&fit=crop")' }} />
         <div className="t-pagehero__veil" />
         <div className="t-pagehero__inner">
           <div className="t-pagehero__crumb">

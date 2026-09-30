@@ -22,7 +22,7 @@ export const VEHICLES: Vehicle[] = [
     name: 'Comfort Sedan',
     category: 'Sedan',
     tagline: 'Travel your way.',
-    img: '/public/suv.png',
+    img: '/public/Travals/sedan.png',
     color: '#4DA3FF',
     specs: { passengers: '2–4', luggage: '2 Bags', transmission: 'Automatic', fuel: 'Hybrid', ac: 'Yes', driver: 'Optional' },
     bestFor: ['Airport Transfer', 'Couples', 'Business Travel', 'City Trips']
@@ -32,7 +32,7 @@ export const VEHICLES: Vehicle[] = [
     name: 'Adventure SUV',
     category: 'SUV',
     tagline: 'Comfortable. Capable. Ready.',
-    img: '/public/suv.png',
+    img: '/public/Travals/suv.png',
     color: '#0066CC',
     specs: { passengers: '4–6', luggage: '4 Bags', transmission: 'Automatic', fuel: 'Diesel / Petrol', ac: 'Yes', driver: 'Optional' },
     bestFor: ['Families', 'Hill Country', 'Long Trips', 'Adventure']
@@ -42,7 +42,7 @@ export const VEHICLES: Vehicle[] = [
     name: 'Family Van',
     category: 'Van',
     tagline: 'Room to travel together.',
-    img: '/public/suv.png',
+    img: '/public/Travals/highroof2.png',
     color: '#00B8D4',
     specs: { passengers: '8–12', luggage: '8+ Bags', transmission: 'Manual / Auto', fuel: 'Diesel', ac: 'Yes', driver: 'Available' },
     bestFor: ['Families', 'Groups', 'Tours', 'Airport']
@@ -52,7 +52,7 @@ export const VEHICLES: Vehicle[] = [
     name: 'Premium Class',
     category: 'Luxury',
     tagline: 'Arrive in style.',
-    img: '/travels/cars/car-luxury.png',
+    img: '/public/Travals/bmw.png',
     color: '#FF6B35',
     specs: { passengers: '2–4', luggage: '3 Bags', transmission: 'Automatic', fuel: 'Petrol', ac: 'Yes', driver: 'Available' },
     bestFor: ['VIP Guests', 'Events', 'Corporate', 'Weddings']
@@ -62,7 +62,7 @@ export const VEHICLES: Vehicle[] = [
     name: 'Group Bus',
     category: 'Bus',
     tagline: 'Travel together. Comfortably.',
-    img: '/travels/cars/car-bus.png',
+    img: '/public/Travals/Rosabus2.png',
     color: '#8B5CF6',
     specs: { passengers: '20–45', luggage: 'Large', transmission: 'Manual', fuel: 'Diesel', ac: 'Yes', driver: 'Included' },
     bestFor: ['Corporate', 'Events', 'Group Tours', 'Excursions']

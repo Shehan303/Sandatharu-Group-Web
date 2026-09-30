@@ -33,6 +33,16 @@ import TravelsServices from '../sites/travels/pages/TravelsServices';
 import TravelsCustom from '../sites/travels/pages/TravelsCustom';
 import TravelsContact from '../sites/travels/pages/TravelsContact';
 
+import ItHome from '../sites/it/pages/ItHome';
+import ITAbout from '../sites/it/pages/ITAbout';
+import ITServices from '../sites/it/pages/ITServices';
+import ITSolutions from '../sites/it/pages/ITSolutions';
+import ITIndustries from '../sites/it/pages/ITIndustries';
+import ITProcess from '../sites/it/pages/ITProcess';
+import ITTechnologies from '../sites/it/pages/ITTechnologies';
+import ITProjects from '../sites/it/pages/ITProjects';
+import ITContact from '../sites/it/pages/ITContact';
+
 const Stub = ({ label }: { label: string }) => (
   <section style={{ padding: '180px 32px 100px', minHeight: '60vh' }}>
     <span className="k">Coming Soon</span>
@@ -76,8 +86,17 @@ export default function AppRoutes() {
       <Route path="/travels/custom" element={<TravelsCustom />} />
       <Route path="/travels/contact" element={<TravelsContact />} />
 
-      {/* IT  */}
-      <Route path="/it" element={<Stub label="Sandatharu IT" />} />
+      {/* IT SOLUTIONS */}
+      <Route path="/it" element={<ItHome />} />
+      {/* IT SOLUTIONS — full sub-site */}
+<Route path="/it/about"        element={<ITAbout />} />
+<Route path="/it/services"     element={<ITServices />} />
+<Route path="/it/solutions"    element={<ITSolutions />} />
+<Route path="/it/industries"   element={<ITIndustries />} />
+<Route path="/it/process"      element={<ITProcess />} />
+<Route path="/it/tech"         element={<ITTechnologies />} />
+<Route path="/it/projects"     element={<ITProjects />} />
+<Route path="/it/contact"      element={<ITContact />} />
 
       {/* ADMIN */}
       <Route

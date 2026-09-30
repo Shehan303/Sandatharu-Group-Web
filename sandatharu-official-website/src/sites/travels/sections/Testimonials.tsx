@@ -6,7 +6,7 @@ const REVIEWS = [
 
 export default function Testimonials() {
   return (
-    <section className="t-section t-section--sand">
+    <section className="t-section t-section--navy">
       <div className="t-container">
         <div style={{ textAlign: 'center', maxWidth: 720, margin: '0 auto 60px' }}>
           <span className="t-kicker" style={{ justifyContent: 'center' }}>Testimonials</span>

@@ -30,7 +30,7 @@ export default function TravelsNav() {
     <header className={`t-nav ${scrolled ? 'is-solid' : ''}`}>
       <div className="t-nav__inner">
         <Link to="/travels" className="t-nav__brand">
-          <img src="/public/logos/sandatharu-travels-white-nav.png" className="t-nav__brand-logo" />
+          <img src="/public/logos/sandatharu-travels-dark-nav.png" className="t-nav__brand-logo" />
         </Link>
 
         <nav className="t-nav__links">

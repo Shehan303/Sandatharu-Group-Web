@@ -4,44 +4,36 @@ import { motion, AnimatePresence } from 'framer-motion';
 
 const SLIDES = [
   {
-    img: 'https://images.unsplash.com/photo-1566296611299-4a1a0d8b1e10?w=2000&q=85&auto=format&fit=crop',
-    eyebrow: 'Discover Sri Lanka',
-    title: <>Your Journey. <em>Our Roads.</em></>,
-    sub: 'Travel through the beauty, culture and unforgettable experiences of Sri Lanka with Sandatharu Travels & Tours.',
-    primary: { label: 'Explore Sri Lanka', to: '/travels/destinations' },
-    secondary: { label: 'Plan Your Journey', to: '/travels/custom' }
-  },
-  {
     img: 'https://images.unsplash.com/photo-1502877338535-766e1452684a?w=2000&q=85&auto=format&fit=crop',
-    eyebrow: 'Travel Your Way',
-    title: <>Comfortable Vehicles.<br /><em>Flexible Journeys.</em></>,
-    sub: 'Choose the right vehicle for your journey — private car, family transport, group transportation or a vehicle for your next trip.',
-    primary: { label: 'View Vehicle Hire', to: '/travels/vehicles' },
+    eyebrow: 'Sri Lanka · Vehicle Hire',
+    title: <>Find the Perfect Car<br /><em>for Every Journey.</em></>,
+    sub: 'Sedans, SUVs, vans and group vehicles — hire the right ride for your Sri Lankan adventure. Airport transfers, daily hire and multi-day trips.',
+    primary: { label: 'Browse Vehicles', to: '#vehicle-hire' },
     secondary: { label: 'Request a Vehicle', to: '/travels/contact' }
   },
   {
-    img: 'https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=2000&q=85&auto=format&fit=crop',
-    eyebrow: 'Airport Transfer',
-    title: <>From the Airport<br /><em>to Your Journey.</em></>,
-    sub: 'Start your Sri Lankan experience with convenient airport transfers and reliable private transportation.',
-    primary: { label: 'Book Your Transfer', to: '/travels/contact' },
-    secondary: { label: 'Learn More', to: '/travels/services' }
+    img: 'https://images.unsplash.com/photo-1449034446853-66c86144b0ad?w=2000&q=85&auto=format&fit=crop',
+    eyebrow: 'Long-Distance Comfort',
+    title: <>Comfortable Vehicles.<br /><em>Any Distance.</em></>,
+    sub: 'Kurunegala to Colombo. Airport to Ella. Whatever the route, choose a vehicle built for comfort and long drives.',
+    primary: { label: 'View Fleet', to: '/travels/vehicles' },
+    secondary: { label: 'Get a Quote', to: '/travels/contact' }
   },
   {
-    img: 'https://images.unsplash.com/photo-1552465011-b4e21bf6e79a?w=2000&q=85&auto=format&fit=crop',
-    eyebrow: 'Explore Tours',
-    title: <>See More. <em>Experience More.</em></>,
-    sub: 'Discover beaches, mountains, wildlife, heritage, food and culture through personalised Sri Lankan journeys.',
-    primary: { label: 'Explore Tours', to: '/travels/tours' },
-    secondary: { label: 'Talk to Us', to: '/travels/contact' }
+    img: 'https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=2000&q=85&auto=format&fit=crop',
+    eyebrow: 'Airport Transfers',
+    title: <>Land in Sri Lanka.<br /><em>Ride in Comfort.</em></>,
+    sub: 'Arrive at BIA and step into a clean, air-conditioned vehicle with a professional driver. Available 24/7.',
+    primary: { label: 'Book Transfer', to: '/travels/contact' },
+    secondary: { label: 'View Options', to: '#vehicle-hire' }
   },
   {
     img: 'https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?w=2000&q=85&auto=format&fit=crop',
-    eyebrow: 'Group Travel',
-    title: <>Travel <em>Together.</em></>,
-    sub: 'Comfortable transportation solutions for families, groups, events and corporate journeys.',
-    primary: { label: 'Group Transportation', to: '/travels/services' },
-    secondary: { label: 'Contact Us', to: '/travels/contact' }
+    eyebrow: 'Groups & Events',
+    title: <>Travel Together.<br /><em>Comfortably.</em></>,
+    sub: 'Vans and group vehicles for families, corporate events, weddings and tour groups across Sri Lanka.',
+    primary: { label: 'Group Vehicles', to: '#vehicle-hire' },
+    secondary: { label: 'Corporate Inquiry', to: '/travels/contact' }
   }
 ];
 
@@ -116,12 +108,12 @@ export default function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: .6, delay: .45 }}
         >
-          <Link to={s.primary.to} className="t-btn t-btn--sunset">
+          <a href={s.primary.to} className="t-btn t-btn--sunset">
             <span>{s.primary.label}</span>
             <svg className="t-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
               <path d="M5 12h14M13 6l6 6-6 6"/>
             </svg>
-          </Link>
+          </a>
           <Link to={s.secondary.to} className="t-btn t-btn--outline-light">
             <span>{s.secondary.label}</span>
           </Link>

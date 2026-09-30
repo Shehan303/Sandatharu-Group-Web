@@ -1,21 +1,23 @@
 import { motion } from 'framer-motion';
 
 const REASONS = [
-  { n: '01', t: 'Comfortable Travel', d: 'Enjoy your journey with transportation selected around your travel needs.' },
-  { n: '02', t: 'Flexible Journeys', d: 'Your journey doesn\'t always need to follow a fixed package. Build your trip around your plans.' },
-  { n: '03', t: 'Local Experience', d: 'Discover Sri Lanka with an understanding of its destinations, roads, culture and experiences.' },
-  { n: '04', t: 'Personal Service', d: 'We focus on understanding what each traveller actually needs.' },
-  { n: '05', t: 'Different Travel Options', d: 'From private cars to group transportation, choose the option that fits your journey.' },
-  { n: '06', t: 'One Travel Partner', d: 'From airport arrival to your final destination, we support different parts of your journey.' }
+  { n: '01', t: 'Wide Vehicle Range', d: 'Sedans, SUVs, vans, buses and luxury cars — pick the right vehicle for your trip.' },
+  { n: '02', t: 'Driver Optional', d: 'Hire with a professional driver or self-drive (subject to availability).' },
+  { n: '03', t: 'Airport Pickup', d: 'Met at Bandaranaike International Airport and driven to your destination.' },
+  { n: '04', t: 'Transparent Rates', d: 'Clear pricing — no hidden charges, no unexpected fees at the end.' },
+  { n: '05', t: 'Well-Maintained Fleet', d: 'Clean, serviced and air-conditioned vehicles on every booking.' },
+  { n: '06', t: 'Island-Wide Reach', d: 'From Colombo to Jaffna, Kandy to Galle — we cover Sri Lanka.' }
 ];
 
 export default function WhyUs() {
   return (
-    <section className="t-section t-section--sand">
+    <section className="t-section t-section--soft">
       <div className="t-container">
         <div className="t-why__head">
-          <span className="t-kicker">Why Sandatharu Travels</span>
-          <h2 className="t-display t-d-lg" style={{ marginTop: 12 }}>Travel With <em style={{ color: 'var(--ocean)', fontStyle: 'normal' }}>Confidence.</em></h2>
+          <span className="t-kicker">Why Rent With Us</span>
+          <h2 className="t-display t-d-lg" style={{ marginTop: 12 }}>
+            Hire With <em style={{ color: 'var(--orange)', fontStyle: 'normal' }}>Confidence.</em>
+          </h2>
         </div>
         <div className="t-why__grid">
           {REASONS.map((r, i) => (

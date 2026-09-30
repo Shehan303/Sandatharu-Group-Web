@@ -8,6 +8,7 @@ import './sites/coco/coco.css';
 import './styles/index.css';
 import './sites/coco/coco.css';
 import './sites/travels/travels.css';
+import './sites/it/it.css';
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>

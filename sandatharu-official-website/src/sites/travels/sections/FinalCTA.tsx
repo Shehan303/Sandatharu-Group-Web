@@ -6,7 +6,7 @@ export default function FinalCTA() {
     <section className="t-final">
       <div
         className="t-final__bg"
-        style={{ backgroundImage: 'url("/public//images/hero/travels-banner.jpg)' }}
+        style={{ backgroundImage: 'url("/public/Travals/cta background.jpg")' }}
       />
       <div className="t-final__veil" />
       <div className="t-final__inner">
