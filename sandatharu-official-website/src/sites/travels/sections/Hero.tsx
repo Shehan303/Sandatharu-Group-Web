@@ -34,7 +34,15 @@ const SLIDES = [
     sub: 'Vans and group vehicles for families, corporate events, weddings and tour groups across Sri Lanka.',
     primary: { label: 'Group Vehicles', to: '#vehicle-hire' },
     secondary: { label: 'Corporate Inquiry', to: '/travels/contact' }
-  }
+  },
+  {
+    img: 'https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=2000&q=85&auto=format&fit=crop',
+    eyebrow: 'Airport Transfers',
+    title: <>Land in Sri Lanka.<br /><em>Ride in Comfort.</em></>,
+    sub: 'Arrive at BIA and step into a clean, air-conditioned vehicle with a professional driver. Available 24/7.',
+    primary: { label: 'Book Transfer', to: '/travels/contact' },
+    secondary: { label: 'View Options', to: '#vehicle-hire' }
+  },
 ];
 
 const DURATION = 6000;

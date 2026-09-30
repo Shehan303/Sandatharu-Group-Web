@@ -12,7 +12,7 @@
 .ms__row--thin .ms__word {
   font-size: clamp(0.9rem, 1.4vw, 1.2rem);
   font-family: var(--mono); letter-spacing: 0.32em; font-weight: 500;
-  color: rgba(255,255,255,.5);
+  color: rgba(231, 223, 0, 0.897);
 }
 .ms__row--thin .ms__dot { width: 4px; height: 4px; background: rgba(255,255,255,.4); }
 .ms__band { height: 1px; background: rgba(255,255,255,.08); margin: 22px 0; }

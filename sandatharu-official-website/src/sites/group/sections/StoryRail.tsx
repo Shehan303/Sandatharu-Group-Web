@@ -15,6 +15,7 @@ export default function StoryRail() {
       <div className="sr__head container">
         <span className="k">Our Journey</span>
         <h2 className="d d-lg sr__title">EVERY JOURNEY HAS A<br />BEGINNING. OURS IS SRI LANKAN.</h2>
+        <br></br>
       </div>
 
       <div className="sr__scroll-wrap">

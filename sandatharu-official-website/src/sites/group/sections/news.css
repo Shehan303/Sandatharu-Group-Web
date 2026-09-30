@@ -15,12 +15,12 @@
 .nw2__meta { display: flex; gap: 14px; padding: 22px 24px 8px; font-family: var(--mono); font-size: 0.66rem; letter-spacing: 0.18em; text-transform: uppercase; }
 .nw2__cat { color: var(--green); font-weight: 600; }
 .nw2__date { color: var(--muted); }
-.nw2__t { padding: 0 24px; font-family: var(--display); font-size: 1.3rem; line-height: 1.2; text-transform: uppercase; margin: 0 0 22px; }
+.nw2__t { padding: 0 24px;  font-size: 1.5rem; line-height: 1.0; text-transform: uppercase; margin: 0 0 22px; }
 .nw2__link {
   display: inline-flex; align-items: center; gap: 8px;
   padding: 0 24px 24px;
   font-family: var(--mono); font-size: 0.68rem; letter-spacing: 0.2em;
-  text-transform: uppercase; font-weight: 600;
+  text-transform: uppercase; font-weight:600;
   color: var(--ink);
 }
 .nw2__link:hover { color: var(--green); }

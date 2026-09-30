@@ -10,8 +10,8 @@
 .bp-nav__card:hover .bp-nav__img img { transform: scale(1.06); }
 .bp-nav__num { position: absolute; top: 14px; left: 16px; font-size: 2.4rem; color: #fff; line-height: 1; text-shadow: 0 4px 20px rgba(0,0,0,.5); }
 .bp-nav__body { padding: 26px 24px 28px; display: flex; flex-direction: column; gap: 14px; flex: 1; }
-.bp-nav__logo { max-height: 34px; width: auto; }
-.bp-nav__t { font-family: var(--display); font-size: 1.3rem; text-transform: uppercase; margin: 0; line-height: 1.15; }
+.bp-nav__logo { max-height: 65px; width: 65px; }
+.bp-nav__t {  font-size: 1.3rem; text-transform: uppercase; margin: 0; line-height: 1.15; }
 .bp-nav__d { color: var(--muted); font-size: 0.9rem; margin: 0; flex: 1; }
 .bp-nav__link {
   display: inline-flex; align-items: center; gap: 8px;

@@ -1,32 +1,415 @@
-.sl { background: var(--paper); padding: var(--section-pad) 0; }
+/* ============================================================
+   SRI LANKA — Meaningful visual + waypoint journey
+   ============================================================ */
+.sl {
+  background: var(--bg);
+  padding: var(--section-pad) 0;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Ambient color blobs */
+.sl__blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(120px);
+  pointer-events: none;
+  z-index: 0;
+}
+.sl__blob--1 {
+  width: 500px; height: 500px;
+  background: rgba(0, 119, 203, 0.12);
+  top: -120px; left: -140px;
+}
+.sl__blob--2 {
+  width: 460px; height: 460px;
+  background: rgba(255, 193, 7, 0.12);
+  bottom: -140px; right: -120px;
+}
+
+.sl .container { position: relative; z-index: 1; }
+
+/* ---------- Head ---------- */
 .sl__head { max-width: 800px; margin-bottom: 60px; }
 .sl__title { margin-top: 20px; }
 .sl__title em { font-style: normal; color: var(--blue); }
-.sl__lead { color: var(--muted); margin: 24px 0 0; max-width: 56ch; }
+.sl__lead { color: var(--muted); margin: 24px 0 0; max-width: 58ch; }
 
-.sl__grid { display: grid; grid-template-columns: 1fr 1.2fr; gap: 60px; align-items: center; }
-.sl__map svg { width: 100%; max-width: 340px; margin: 0 auto; display: block; }
+/* ---------- Grid ---------- */
+.sl__grid {
+  display: grid;
+  grid-template-columns: 1fr 1.05fr;
+  gap: clamp(40px, 5vw, 80px);
+  align-items: center;
+}
 
-.sl__steps { display: flex; flex-direction: column; gap: 6px; }
-.sl__step {
-  display: flex; align-items: center; gap: 20px;
-  padding: 20px 24px;
-  background: var(--paper-2);
-  border: 1px solid var(--line);
-  border-radius: var(--r-sm);
+/* ---------- LEFT: Visual + map overlay ---------- */
+.sl__visual { position: relative; }
+
+.sl__visual-frame {
   position: relative;
-  transition: all .3s var(--ease);
-}
-.sl__step:hover { background: var(--yellow); border-color: var(--yellow); transform: translateX(6px); }
-.sl__step-num {
-  font-family: var(--mono); font-size: 0.68rem; letter-spacing: 0.2em;
-  color: var(--muted);
-}
-.sl__step:hover .sl__step-num { color: var(--ink); }
-.sl__step-label { font-family: var(--display); font-size: 1.1rem; text-transform: uppercase; letter-spacing: 0.03em; }
-.sl__step-arrow {
-  position: absolute; left: 50%; bottom: -18px; transform: translateX(-50%);
-  color: var(--muted); font-size: 0.9rem;
+  aspect-ratio: 4 / 5;
+  border-radius: var(--r-xl, 24px);
+  overflow: hidden;
+  box-shadow:
+    0 30px 80px rgba(10, 10, 10, 0.22),
+    0 0 0 1px rgba(10, 10, 10, 0.06) inset;
+  background: #0A1B3D;
 }
 
-@media (max-width: 900px) { .sl__grid { grid-template-columns: 1fr; } }
+.sl__visual-img {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%;
+  object-fit: cover;
+  transition: transform 1.4s cubic-bezier(.16, 1, .3, 1);
+}
+.sl__visual-frame:hover .sl__visual-img { transform: scale(1.06); }
+
+.sl__visual-veil {
+  position: absolute; inset: 0;
+  background:
+    linear-gradient(180deg, rgba(10, 27, 61, 0.15) 0%, rgba(10, 27, 61, 0.55) 55%, rgba(10, 27, 61, 0.92) 100%),
+    radial-gradient(circle at 50% 45%, transparent 30%, rgba(10, 27, 61, 0.35) 90%);
+  pointer-events: none;
+}
+
+/* SVG map overlay */
+.sl__visual-svg {
+  position: absolute;
+  inset: 0;
+  width: 100%; height: 100%;
+  padding: 8%;
+  filter: drop-shadow(0 4px 20px rgba(0, 0, 0, 0.5));
+  pointer-events: auto;
+}
+
+/* Floating active waypoint label */
+.sl__visual-label {
+  position: absolute;
+  left: 20px; top: 20px;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 16px;
+  background: rgba(10, 10, 10, 0.7);
+  border: 1px solid rgba(255, 193, 7, 0.35);
+  border-radius: 999px;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  z-index: 3;
+}
+.sl__visual-label-num {
+  font-family: var(--font-mono, monospace);
+  font-size: 0.68rem;
+  letter-spacing: 0.18em;
+  color: var(--yellow, #FFC107);
+  font-weight: 700;
+}
+.sl__visual-label-t {
+  font-family: var(--font-mono, monospace);
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #fff;
+  font-weight: 600;
+}
+
+/* Bottom-left stamp */
+.sl__visual-stamp {
+  position: absolute;
+  right: 20px; bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 4px;
+  z-index: 3;
+  text-align: right;
+}
+.sl__visual-stamp span {
+  font-family: var(--font-mono, monospace);
+  font-size: 0.6rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.7);
+  font-weight: 600;
+}
+.sl__visual-stamp span:last-child {
+  color: rgba(255, 193, 7, 0.75);
+  font-size: 0.55rem;
+}
+
+/* ---------- RIGHT: Waypoint cards ---------- */
+.sl__right { display: flex; flex-direction: column; gap: 22px; }
+
+.sl__right-eyebrow {
+  font-family: var(--font-mono, monospace);
+  font-size: 0.68rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--muted);
+  font-weight: 600;
+  margin: 0 0 6px;
+}
+
+.sl__steps {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.sl__step {
+  display: grid;
+  grid-template-columns: 44px 44px 1fr 24px;
+  align-items: center;
+  gap: 16px;
+  padding: 18px 20px;
+  background: var(--paper-2, #fff);
+  border: 1px solid var(--line, #E5E7EB);
+  border-radius: 14px;
+  cursor: pointer;
+  text-align: left;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  transition: all .35s cubic-bezier(.2, .7, .2, 1);
+}
+
+.sl__step::before {
+  content: '';
+  position: absolute;
+  left: 0; top: 0; bottom: 0;
+  width: 3px;
+  background: var(--yellow, #FFC107);
+  transform: scaleY(0);
+  transform-origin: top;
+  transition: transform .4s cubic-bezier(.16, 1, .3, 1);
+}
+.sl__step.is-active::before { transform: scaleY(1); }
+
+.sl__step.is-active {
+  background: #fff;
+  border-color: rgba(255, 193, 7, 0.55);
+  box-shadow:
+    0 12px 32px rgba(10, 10, 10, 0.08),
+    0 0 0 1px rgba(255, 193, 7, 0.15) inset;
+  transform: translateX(6px);
+}
+.sl__step:hover:not(.is-active) {
+  border-color: var(--line-2, #D1D5DB);
+  transform: translateX(4px);
+}
+
+/* Number */
+.sl__step-num {
+  font-family: var(--font-mono, monospace);
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+  color: var(--muted);
+  font-weight: 700;
+}
+.sl__step.is-active .sl__step-num { color: var(--ink, #0A0A0A); }
+
+/* Icon */
+.sl__step-icon {
+  width: 44px; height: 44px;
+  border-radius: 12px;
+  display: grid;
+  place-items: center;
+  background: var(--bg-alt, #F5F5F5);
+  color: var(--muted);
+  transition: all .3s;
+  flex-shrink: 0;
+}
+.sl__step.is-active .sl__step-icon {
+  background: var(--yellow, #FFC107);
+  color: var(--ink, #0A0A0A);
+  box-shadow: 0 6px 16px rgba(255, 193, 7, 0.35);
+}
+
+/* Body */
+.sl__step-body { display: flex; flex-direction: column; gap: 4px; min-width: 0; }
+
+.sl__step-label {
+  font-family: var(--display, 'Anton', sans-serif);
+  font-size: 1.05rem;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  color: var(--ink, #0A0A0A);
+  line-height: 1.2;
+}
+
+.sl__step-desc {
+  font-family: var(--font-body, system-ui, sans-serif);
+  font-size: 0.82rem;
+  color: var(--muted);
+  line-height: 1.5;
+  /* collapsed by default */
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: max-height .5s cubic-bezier(.2, .7, .2, 1),
+              opacity .35s,
+              margin-top .35s;
+}
+.sl__step.is-active .sl__step-desc {
+  max-height: 80px;
+  opacity: 1;
+  margin-top: 4px;
+}
+
+/* Arrow */
+.sl__step-arrow {
+  display: grid;
+  place-items: center;
+  color: var(--muted);
+  transition: all .3s;
+}
+.sl__step.is-active .sl__step-arrow {
+  color: var(--ink, #0A0A0A);
+  transform: translateX(4px);
+}
+
+/* Right footer */
+.sl__right-footer {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 4px;
+  font-family: var(--font-mono, monospace);
+  font-size: 0.66rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--muted);
+  font-weight: 600;
+}
+.sl__dot {
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: var(--green, #33A852);
+  box-shadow: 0 0 0 3px rgba(51, 168, 82, 0.18);
+  animation: slPulse 2s infinite;
+}
+@keyframes slPulse {
+  0%, 100% { box-shadow: 0 0 0 3px rgba(51, 168, 82, 0.18); }
+  50%      { box-shadow: 0 0 0 6px rgba(51, 168, 82, 0.05); }
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 1000px) {
+  .sl__grid { grid-template-columns: 1fr; gap: 50px; }
+  .sl__visual-frame { aspect-ratio: 4 / 4.5; max-width: 520px; margin: 0 auto; }
+}
+
+@media (max-width: 640px) {
+  .sl__step { grid-template-columns: 36px 38px 1fr 20px; gap: 12px; padding: 14px 14px; }
+  .sl__step-icon { width: 38px; height: 38px; }
+  .sl__step-label { font-size: 0.94rem; }
+  .sl__step-desc { font-size: 0.78rem; }
+  .sl__visual-label { left: 12px; top: 12px; padding: 8px 12px; }
+  .sl__visual-label-t { font-size: 0.62rem; }
+  .sl__visual-stamp { right: 12px; bottom: 12px; }
+  .sl__visual-stamp span { font-size: 0.55rem; letter-spacing: 0.2em; }
+}
+
+@media (max-width: 400px) {
+  .sl__step-num { display: none; }
+  .sl__step { grid-template-columns: 38px 1fr 20px; }
+}
+
+/* ============================================================
+   Image crossfade — needs explicit positioning
+   ============================================================ */
+.sl__visual-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  will-change: transform, opacity;
+}
+
+/* ============================================================
+   Progress bar (top of image frame)
+   ============================================================ */
+.sl__visual-progress {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  left: 18px;
+  display: flex;
+  gap: 6px;
+  z-index: 3;
+}
+.sl__visual-progress-bar {
+  flex: 1;
+  height: 2px;
+  background: rgba(255, 255, 255, 0.22);
+  border-radius: 2px;
+  overflow: hidden;
+  position: relative;
+}
+.sl__visual-progress-fill {
+  position: absolute;
+  inset: 0;
+  background: var(--yellow, #FFC107);
+  transform-origin: left;
+  transform: scaleX(0);
+}
+.sl__visual-progress-bar.is-active .sl__visual-progress-fill {
+  animation: slProgressFill 4s linear forwards;
+}
+@keyframes slProgressFill {
+  from { transform: scaleX(0); }
+  to   { transform: scaleX(1); }
+}
+
+/* ============================================================
+   Clickable dots (bottom-right of image)
+   ============================================================ */
+.sl__visual-dots {
+  position: absolute;
+  right: 20px;
+  bottom: 60px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  z-index: 3;
+}
+.sl__visual-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: 1.5px solid rgba(255, 255, 255, 0.5);
+  background: transparent;
+  cursor: pointer;
+  padding: 0;
+  transition: all .3s;
+}
+.sl__visual-dot:hover {
+  border-color: var(--yellow, #FFC107);
+}
+.sl__visual-dot.is-active {
+  background: var(--yellow, #FFC107);
+  border-color: var(--yellow, #FFC107);
+  box-shadow: 0 0 0 4px rgba(255, 193, 7, 0.25);
+}
+
+/* ============================================================
+   Move stamp to bottom-left (dots now take bottom-right)
+   ============================================================ */
+.sl__visual-stamp {
+  left: 20px;
+  right: auto;
+  align-items: flex-start;
+  text-align: left;
+}
+
+/* ============================================================
+   Mobile adjustments
+   ============================================================ */
+@media (max-width: 640px) {
+  .sl__visual-progress { top: 12px; right: 12px; left: 12px; }
+  .sl__visual-dots { right: 14px; bottom: 50px; }
+  .sl__visual-dot { width: 8px; height: 8px; }
+  .sl__visual-stamp { left: 12px; bottom: 12px; }
+}

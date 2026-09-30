@@ -26,7 +26,7 @@
   70% { box-shadow: 0 0 0 14px rgba(255,193,7,0); }
   100% { box-shadow: 0 0 0 0 rgba(255,193,7,0); }
 }
-.pr__t { font-family: var(--display); font-size: 1.3rem; text-transform: uppercase; margin: 0 0 10px; }
+.pr__t {  font-size: 1.3rem; text-transform: uppercase; margin: 0 0 10px; }
 .pr__d { color: rgba(255,255,255,.65); font-size: 0.86rem; margin: 0; }
 
 @media (max-width: 900px) {

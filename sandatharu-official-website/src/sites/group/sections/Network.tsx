@@ -41,7 +41,7 @@ export default function Network() {
           </svg>
 
           <div className="nw__center">
-            <img src="/logos/sandatharu-logo-white.svg" alt="Sandatharu Group" />
+            <img src="/public/logos/sandatharu-logo-white nav.png" alt="Sandatharu Group" />
           </div>
 
           <div className="nw__node nw__node--tl" style={{ '--c': '#33A852' } as React.CSSProperties}>

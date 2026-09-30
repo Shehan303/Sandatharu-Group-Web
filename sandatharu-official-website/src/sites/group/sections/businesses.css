@@ -33,7 +33,7 @@
 .bp__left { color: #ffffff34; }
 .bp__head { display: flex; align-items: center; gap: 20px; margin-bottom: 30px; }
 .bp__num {
-  font-family: var(--display); font-size: clamp(3rem, 6vw, 5.4rem);
+  font-size: clamp(3rem, 6vw, 5.4rem);
   color: var(--c); line-height: 1;
 }
 .bp__kicker {

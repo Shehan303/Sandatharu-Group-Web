@@ -15,8 +15,8 @@
 .hero2__veil {
   position: absolute; inset: 0;
   background:
-    linear-gradient(180deg, rgba(14,17,22,.45) 0%, rgba(14,17,22,.6) 55%, rgba(14,17,22,.92) 100%),
-    linear-gradient(90deg, rgba(14,17,22,.55), transparent 60%);
+    linear-gradient(180deg, rgba(14,17,22,.15) 0%, rgba(14,17,22,.5) 55%, rgba(14,17,22,.92) 100%),
+    linear-gradient(90deg, rgba(14,17,22,.75), transparent 40%);
 }
 .hero2__grid {
   position: absolute; inset: 0; opacity: .05;
