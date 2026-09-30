@@ -4,6 +4,7 @@ import { motion, useScroll, useTransform } from 'framer-motion';
 import { BUSINESSES } from '../../../shared/data/businesses';
 import './businesses.css';
 
+
 function BizPanel({ b, i }: { b: typeof BUSINESSES[0]; i: number }) {
   const ref = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({ target: ref, offset: ['start end', 'end start'] });
